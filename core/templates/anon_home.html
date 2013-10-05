@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+        <div class="page-header">
+            <h1>Save this for me</h1>
+            <p class="lead">Remind yourself of things you don't want to forget.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>1. Sign up</h2>
+                <a href="{% url 'registration_register' %}">Create an account</a>
+                <!--form method="POST" action="{% url "registration_register" %}">
+                    {% csrf_token %}
+                    <input class="form-control" type="text" name="email" placeholder="email address">
+                    <input class="form-control" type="password" name="password" placeholder="password">
+                    <div class='checkbox'>
+                        <input type="checkbox" name="contact_me" id="signup_contactme"> You may contact me occasionally for feedback
+                    </div>
+                    <input class="pull-right btn btn-success" type="submit" name="Submit" value="Create my account">
+                </form-->
+            </div>
+            <div class="col-md-4">
+                <h2>2. Create a morsel</h2>
+                <p>What's a morsel?  Any <a href="http://www.thefreedictionary.com/morsel" target="_blank">small piece of information that is delightful and extremely pleasing</a>.  Your morsels can be pieces of text, images, videos, and links.</p>
+            </div>
+            <div class="col-md-4">
+                <h2>3. You've got mail</h2>
+                <p>I'll email your morsels to you next week, next month, and every six months after that.  Refresh your memory and revisit why that morsel was so delicious.</p>
+            </div>
+        </div>
+{% endblock %}

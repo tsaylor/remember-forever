@@ -1,3 +1,7 @@
+/static/
+.env
+/venv/
+
 *.py[cod]
 
 # C extensions

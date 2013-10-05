@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Morsels</h1>
+{% for morsel in object_list %}
+<div class='row'>
+    <div class='col-md-12'><a href="{{ morsel.get_absolute_url }}">{{ morsel.title }}</a> <small class="text-muted">({{ morsel.created }})</small></div>
+</div>
+{% empty %}
+<div class='row'>
+    <div class='col-md-12'>You don't have any morsels yet.</div>
+</div>
+{% endfor %}
+<a href="{% url 'morsel_create' %}">Create a new morsel</a>
+</div>
+{% endblock content %}

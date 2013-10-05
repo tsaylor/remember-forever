@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+<small class="text-muted">({{ morsel.created }})</small> <a class='btn' href='{% url 'morsel_delete' morsel.id %}'>Delete</a>
+<p>{{ object.content }}</p>
+{% endblock content %}

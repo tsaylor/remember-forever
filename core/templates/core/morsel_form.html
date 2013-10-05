@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Create a Morsel</h1>
+
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+
+<form method="post" action="{% url 'morsel_create' %}">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="save" />
+</form>
+
+{% endblock %}

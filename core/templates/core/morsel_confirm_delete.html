@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Delete Morsel</h1>
+
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+
+<form method="post" action="">
+{% csrf_token %}
+<p>Are you sure you want to delete {{ morsel }}?</p>
+<input type="submit" value="Confirm" />
+</form>
+
+{% endblock %}
