@@ -2,16 +2,11 @@
 
 {% block content %}
 
-<h1>Create a Morsel</h1>
-
-{% if form.errors %}
-{{ form.errors }}
-{% endif %}
-
-<form method="post" action="{% url 'morsel_create' %}">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="save" />
-</form>
+<div class='row'>
+    <h1 class='col-md-4 col-md-offset-4'>Create a Morsel</h1>
+    <div class='col-md-4 col-md-offset-4'>
+        {% include 'form_include.html' with form=form button_name='Save' action_url='morsel_create' %}
+    </div>
+</div>
 
 {% endblock %}

@@ -184,12 +184,14 @@ LOGGING = {
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
-EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
-EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
-EMAIL_PORT = 465
-EMAIL_HOST_USER = env_var('EMAIL_HOST_USER', 'ERROR:UNSET')
-EMAIL_HOST_PASSWORD = env_var('EMAIL_HOST_PASSWORD', 'ERROR:UNSET')
-EMAIL_USE_TLS = True
+#EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+#EMAIL_HOST = 'email-smtp.us-east-1.amazonaws.com'
+#EMAIL_PORT = 465
+#EMAIL_HOST_USER = env_var('EMAIL_HOST_USER', 'ERROR:UNSET')
+#EMAIL_HOST_PASSWORD = env_var('EMAIL_HOST_PASSWORD', 'ERROR:UNSET')
+#EMAIL_USE_TLS = True
+EMAIL_HOST='localhost'
+EMAIL_PORT=1025
 DEFAULT_FROM_EMAIL='tim.saylor@gmail.com'
 
 LOGIN_URL = '/accounts/login/'

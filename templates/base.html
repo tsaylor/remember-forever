@@ -16,13 +16,16 @@
   </head>
   <body>
     <div class='container'>
-    <div class="pull-right">
-        {% if user.is_authenticated %}<a href="{% url 'logout' %}">Log out</a>
-        {% else %}<a href="{% url 'login' %}">Log in</a>{% endif %}
-    </div>
+        <div class="row">
+            <div class='col-md-1 col-md-offset-11'>
+                {% if user.is_authenticated %}<a href="{% url 'logout' %}">Log out</a>
+                {% else %}<a href="{% url 'login' %}">Log in</a>{% endif %}
+            </div>
+        </div>
         {% block content %}
         {% endblock content %}
     </div>
+    
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{% static "js/jquery.js" %}"></script>
