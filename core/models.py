@@ -23,15 +23,6 @@ class Morsel(BaseModel):
         return "%s-%s" % (self.user, self.title)
 
 
-class MorselForm(forms.ModelForm):
-    user = forms.ModelChoiceField(
-        queryset=User.objects.all(), widget=forms.HiddenInput
-    )
-
-    class Meta:
-        model = Morsel
-
-
 class ReminderDelay(models.Model):
     days = models.IntegerField()
     recurring = models.BooleanField(default=False)
@@ -41,6 +32,7 @@ class ReminderDelay(models.Model):
 
     def __unicode__(self):
         return "%s%d days" % ('every ' if self.recurring else '', self.days)
+
 
 class Reminder(BaseModel):
     morsel = models.ForeignKey(Morsel)

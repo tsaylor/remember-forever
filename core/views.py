@@ -1,7 +1,9 @@
+import markdown
 from django.views.generic import TemplateView, ListView, CreateView, DetailView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse, reverse_lazy
-from core.models import Morsel, MorselForm
+from django.http import HttpResponseRedirect
+from core.models import Morsel
 
 def home(*args, **kwargs):
     request = args[0]
@@ -25,13 +27,19 @@ user_home = login_required(UserHome.as_view())
 
 class CreateMorsel(CreateView):
     model = Morsel
-    form_class = MorselForm
+    fields = ['title', 'content']
 
-    def get_form_kwargs(self):
-        kwargs = super(CreateMorsel, self).get_form_kwargs()
-        kwargs.update({'initial':{'user': self.request.user.id}})
-        return kwargs
-
+    def form_valid(self, form):
+        title = form.cleaned_data['title']
+        content = markdown.markdown(
+                form.cleaned_data['content'],
+                safe_mode='escape',
+                extensions=['nl2br']
+        )
+        user = self.request.user
+        self.model.objects.create(
+                title=title, content=content, user=self.request.user)
+        return HttpResponseRedirect(self.get_success_url())
     def get_success_url(self):
         return reverse('home')
 
