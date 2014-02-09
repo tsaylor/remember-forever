@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 import pytz
 import markdown
 from django.db import models
@@ -35,9 +35,10 @@ class Morsel(BaseModel):
 
     @property
     def reminded_today(self):
+        day = datetime.utcnow().replace(tzinfo=pytz.utc) - timedelta(days=1)
         return self.morselevent_set.filter(
             event_type__code=MorselEventType.REMINDER_SENT,
-            event_datetime__gte=datetime.utcnow().replace(tzinfo=pytz.utc)
+            event_datetime__gte=day
         ).exists()
 
     def __unicode__(self):
