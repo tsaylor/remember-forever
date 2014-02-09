@@ -1,0 +1,30 @@
+[
+{
+    "pk": 2,
+    "model": "auth.user",
+    "fields": {
+        "username": "test",
+        "first_name": "Tester",
+        "last_name": "Testersson",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2014-02-09T17:06:21.191Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$12000$mttLsufyCjJO$zpWwAULk3sNAVNOd/WPZzm1rFntMMSv9NEaJrR9m9HQ=",
+        "email": "test@example.com",
+        "date_joined": "2014-02-09T17:06:01.668Z"
+    }
+},
+{
+    "pk": 1,
+    "model": "core.morsel",
+    "fields": {
+        "content": "Out of the night that covers me,\r\nBlack as the pit from pole to pole,\r\nI thank whatever gods may be\r\nFor my unconquerable soul.\r\n\r\nIn the fell clutch of circumstance\r\nI have not winced nor cried aloud.\r\nUnder the bludgeonings of chance\r\nMy head is bloody, but unbowed.\r\n\r\nBeyond this place of wrath and tears\r\nLooms but the horror of the shade,\r\nAnd yet the menace of the years\r\nFinds and shall find me unafraid.\r\n\r\nIt matters not how strait the gate,\r\nHow charged with punishments the scroll,\r\nI am the master of my fate:\r\nI am the captain of my soul.",
+        "user": 2,
+        "title": "invictus",
+        "created": "2014-02-09T17:06:01.668Z"
+    }
+}
+]

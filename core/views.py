@@ -31,15 +31,12 @@ class CreateMorsel(CreateView):
 
     def form_valid(self, form):
         title = form.cleaned_data['title']
-        content = markdown.markdown(
-                form.cleaned_data['content'],
-                safe_mode='escape',
-                extensions=['nl2br']
-        )
+        content = form.cleaned_data['content']
         user = self.request.user
         self.model.objects.create(
-                title=title, content=content, user=self.request.user)
+            title=title, content=content, user=self.request.user)
         return HttpResponseRedirect(self.get_success_url())
+
     def get_success_url(self):
         return reverse('home')
 

@@ -9,42 +9,79 @@
 },
 {
     "pk": 1,
-    "model": "core.reminderdelay",
+    "model": "core.reminderschedule",
     "fields": {
-        "recurring": false,
-        "days": 1
+        "code": "decaying",
+        "name": "Decaying"
+    }
+},
+{
+    "pk": 1,
+    "model": "core.remindertask",
+    "fields": {
+        "delay": 2,
+        "repeating": false,
+        "schedule": 1
     }
 },
 {
     "pk": 2,
-    "model": "core.reminderdelay",
+    "model": "core.remindertask",
     "fields": {
-        "recurring": false,
-        "days": 7
+        "delay": 7,
+        "repeating": false,
+        "schedule": 1
     }
 },
 {
     "pk": 3,
-    "model": "core.reminderdelay",
+    "model": "core.remindertask",
     "fields": {
-        "recurring": false,
-        "days": 30
+        "delay": 30,
+        "repeating": false,
+        "schedule": 1
     }
 },
 {
     "pk": 4,
-    "model": "core.reminderdelay",
+    "model": "core.remindertask",
     "fields": {
-        "recurring": false,
-        "days": 90
+        "delay": 90,
+        "repeating": false,
+        "schedule": 1
     }
 },
 {
     "pk": 5,
-    "model": "core.reminderdelay",
+    "model": "core.remindertask",
     "fields": {
-        "recurring": true,
-        "days": 180
+        "delay": 180,
+        "repeating": true,
+        "schedule": 1
+    }
+},
+{
+    "pk": 1,
+    "model": "core.morseleventtype",
+    "fields": {
+        "code": "created",
+        "name": "Created"
+    }
+},
+{
+    "pk": 2,
+    "model": "core.morseleventtype",
+    "fields": {
+        "code": "schedule_reset",
+        "name": "Schedule reset"
+    }
+},
+{
+    "pk": 3,
+    "model": "core.morseleventtype",
+    "fields": {
+        "code": "reminder_sent",
+        "name": "Reminder sent"
     }
 }
 ]

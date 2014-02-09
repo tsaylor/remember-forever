@@ -4,5 +4,5 @@
 <a href='{% url 'home' %}'>Back to list</a>
 <h1>{{ object.title }}</h1>
 <small class="text-muted">({{ morsel.created }})</small> <a class='btn' href='{% url 'morsel_delete' morsel.id %}'>Delete</a>
-<p>{{ object.content|safe }}</p>
+<p>{{ object.html_content|safe }}</p>
 {% endblock content %}
