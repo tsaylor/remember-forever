@@ -16,6 +16,5 @@ def create_venv():
     ):
         local('rm -rf venv')
     local('virtualenv venv')
-    local('pip freeze')
     local('. venv/bin/activate && pip install -r requirements.txt')
     
