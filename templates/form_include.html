@@ -1,5 +1,5 @@
-{% if form.errors %}
-{{ form.errors }}
+{% if form.non_field_errors %}
+{{ form.non_field_errors }}
 {% endif %}
 
 <form class='form-horizontal' method="post" action="{% url action_url %}">
@@ -8,10 +8,15 @@
     {{ hidden }}
 {% endfor %}
 {% for field in form.visible_fields %}
-    <div class='form-group'>
+{% with err=field.errors %}
+<div class='form-group{% if err %} has-error{% endif %}'>
         <div class='col-md-3'>{{ field.label_tag }}</div>
         <div class='col-md-9'>{{ field }}</div>
+        {% if err %}<span class="help-block col-md-9 col-md-offset-3">
+            {% for e in err %}{{ e }}{% endfor %}
+        </span>{% endif %}
     </div>
+{% endwith %}
 {% endfor %}
     <div class='row'>
         <div class='col-md-9 col-md-offset-3'>

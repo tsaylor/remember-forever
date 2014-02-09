@@ -3,9 +3,44 @@
 {% block content %}
 
 <div class='row'>
-    <h1 class='col-md-4 col-md-offset-4'>Create a Morsel</h1>
-    <div class='col-md-4 col-md-offset-4'>
+    <h1 class='col-md-5 col-md-offset-2'>Create a Morsel</h1>
+</div>
+<div class='row'>
+    <div class='col-md-5 col-md-offset-2'>
         {% include 'form_include.html' with form=form button_name='Save' action_url='morsel_create' %}
+    </div>
+    <p class='col-md-3'>
+    Content is written in markdown.
+    <a data-toggle='collapse' data-target='#formatting_options'>See formatting options</a>
+    </p>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 collapse" id="formatting_options">
+    <pre>
+Newlines are converted to Paragraphs.
+
+# H1
+## H2
+*italics*
+**bold**
+~~strikethrough~~
+
+1. Ordered list
+&nbsp;Paragraph inline with the list item.
+1. Numeric order doesn't matter.
+&nbsp;&nbsp;1. Sub-item
+            
+* Unordered List
+    * Sub-item
+
+Adding a link:
+[link text](http://www.example.com)
+
+Adding an image: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Image Title Text")
+    </pre>
+    <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">More formatting options</a>
     </div>
 </div>
 
