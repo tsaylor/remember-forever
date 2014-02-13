@@ -1,8 +1,6 @@
 #previewPane{
     height:500px;
     width:auto;
-    border: 1px dotted blue;
-    border-radius: 20px;
     padding-left:10px;
     padding-right:10px;
     word-wrap:break-word;

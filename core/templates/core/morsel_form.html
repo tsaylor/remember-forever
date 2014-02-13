@@ -7,49 +7,88 @@
 {% block content %}
 
 <div class='row'>
-    <h1 class='col-md-5 col-md-offset-2'>Create a Morsel</h1>
-</div>
-<div class='row'>
-    <div class='col-md-5 col-md-offset-2'>
-        {% include 'form_include.html' with form=form button_name='Save' action_url='morsel_create' %}
-    </div>
-    <div class='col-md-5'>
-        <p>Content is written in markdown.
-            <a data-toggle='collapse' data-target='#formatting_options'>See formatting options</a>
-        </p>
-        <div id="formatting_options" class='collapse'>
-            <pre>
-            Newlines are converted to Paragraphs.
-
-            # H1
-            ## H2
-            *italics*
-            **bold**
-            ~~strikethrough~~
-
-            1. Ordered list
-            &nbsp;Paragraph inline with the list item.
-            1. Numeric order doesn't matter.
-            &nbsp;&nbsp;1. Sub-item
-                        
-            * Unordered List
-                * Sub-item
-
-            Adding a link:
-            [link text](http://www.example.com)
-
-            Adding an image: 
-            ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Image Title Text")
-            </pre>
-            <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">More formatting options</a>
-        </div>    
-    </div>
+    <h1 class='col-md-5 col-md-offset-1'>Create a Morsel</h1>
 </div>
 <br>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2 " >
-        <h2>Preview</h2>    
-        <div id="previewPane" ></div>
+<div class='row'>
+    <div class='col-md-6'>
+        {% with button_name='Save' action_url='morsel_create' %}
+            {% if form.non_field_errors %}
+                {{ form.non_field_errors }}
+            {% endif %}
+
+            <form class='form-horizontal' role='form' method="post" action="{% url action_url %}">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            <div class='form-group{% if form.title.errors %} has-error{% endif %}'>
+                <div class='col-md-2'>{{ form.title.label_tag }}</div>
+                <div class='col-md-10'>
+                    <input id="id_title" class="form-control" maxlength="255" name="title" type="text">
+                </div>
+                {% if form.title.errors %}
+                    <span class="help-block col-md-10 col-md-offset-2">
+                        {% for e in form.title.errors %}{{ e }}{% endfor %}
+                    </span>
+                {% endif %}
+            </div>
+            <div class='form-group{% if form.content.errors %} has-error{% endif %}'>
+                <div class='col-md-2'>{{ form.content.label_tag }}</div>
+                <div class='col-md-10'>
+                    <textarea id="id_content" class="form-control" name="content" rows="10"></textarea>
+                    <div>Content is written in markdown.<br>
+                    <a data-toggle='collapse' data-target='#formatting_options'>See formatting options</a></div>
+                </div>
+                
+                {% if form.content.errors %}
+                    <span class="help-block col-md-10 col-md-offset-2">
+                        {% for e in form.content.errors %}{{ e }}{% endfor %}
+                    </span>
+                {% endif %}
+            </div>
+                <div class='row'>
+                    <div class='col-md-10 col-md-offset-2'>
+                        <button type="submit" class='btn btn-default'>{{ button_name }}</button>
+                    </div>
+                </div>
+            </form>
+        {% endwith %}
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-10 col-md-offset-2">
+                <div id="formatting_options" class='collapse'>
+                    <pre>
+Newlines are converted to Paragraphs.
+
+# H1
+## H2
+*italics*
+**bold**
+~~strikethrough~~
+
+1. Ordered list
+&nbsp;Paragraph inline with the list item.
+1. Numeric order doesn't matter.
+&nbsp;&nbsp;1. Sub-item
+            
+* Unordered List
+    * Sub-item
+
+Adding a link:
+[link text](http://www.example.com)
+
+Adding an image: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Image Title Text")
+                    </pre>
+                    <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">More formatting options</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-6' style="border-left: 1px solid #aaaaaa">
+        <label for="previewPane">Preview:</label>
+        <div id="previewPane"></div>
     </div>
 </div>
 
