@@ -86,5 +86,5 @@ class MorselEvent(models.Model):
 
     def __unicode__(self):
         return '{} on {} at {}'.format(
-            self.event_type.name, self.morsel.name, self.event_datetime
+            self.event_type.name, self.morsel, self.event_datetime
         )
