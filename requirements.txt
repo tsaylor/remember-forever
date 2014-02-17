@@ -1,6 +1,7 @@
 Django==1.6.1
 Fabric==1.8.1
 Markdown==2.3.1
+South==0.8.4
 distribute==0.6.34
 dj-database-url==0.2.2
 dj-static==0.0.5
@@ -8,7 +9,7 @@ django-registration==1.0
 django-smtp-ssl==1.0
 django-toolbelt==0.0.1
 ecdsa==0.10
-gunicorn==17.5
+gunicorn==18.0
 ipython==1.1.0
 paramiko==1.12.1
 psycopg2==2.5.1

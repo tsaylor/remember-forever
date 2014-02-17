@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'registration',
     'django_smtp_ssl',
     'core',
+    'south',
 )
 
 AUTHENTICATION_BACKENDS  = (
